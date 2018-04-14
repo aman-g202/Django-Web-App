@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Questions</title>
+
+	{% load static %}  <!--  To load static files in template, static will generate absolute path -->
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<body background="{% static 'polls/image/computer.jpg' %}">
+
+	{% if latest_question %}
+    <ul>
+    {% for question in latest_question %}
+        <li><a id="question" href="/polls/{{ question.id }}/">{{ question.question_name }}</a></li>
+    {% endfor %}
+    </ul>
+	{% else %}
+	    <p>No polls are available.</p>
+	{% endif %}
+
+	<!-- <img src="{% static 'polls/image/computer.jpg' %}"> -->
+
+</body>
+</html>
+
+
+
